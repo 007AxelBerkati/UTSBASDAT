@@ -26,5 +26,4 @@ if(isset($_GET['Essn'])){
 	echo '<script>alert("ID tidak ditemukan di database."); document.location="index.php?page=tampil_mhs";</script>';
 }
 
-// axel 
 ?>
