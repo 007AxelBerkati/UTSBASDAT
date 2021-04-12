@@ -13,7 +13,7 @@
 			$Ssn = $_GET['Ssn'];
 
 			//query ke database SELECT tabel mahasiswa berdasarkan id = $id
-			$select = mysqli_query($koneksi, "SELECT * FROM employee WHERE Ssn='$Snn'") or die(mysqli_error($koneksi));
+			$select = mysqli_query($koneksi, "SELECT * FROM employee WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
 
 			//jika hasil query = 0 maka muncul pesan error
 			if(mysqli_num_rows($select) == 0){
@@ -30,20 +30,20 @@
 		<?php
 		//jika tombol simpan di tekan/klik
 		if(isset($_POST['submit'])){
-			$Fname			= $_POST['Fname'];
+			$Fname	= $_POST['Fname'];
 			$Minit	= $_POST['Minit'];
 			$Lname	= $_POST['Lname'];
-			$Ssn		= $_POST['Ssn'];
-			$Ssnbaru		= $_POST['Ssnbaru'];
+			$Ssn	= $_POST['Ssn'];
+			$Ssnbaru= $_POST['Ssnbaru'];
 			$Bdate	= $_POST['Bdate'];
-			$Address	= $_POST['Address'];
+			$Address= $_POST['Address'];
 			$Sex	= $_POST['Sex'];
 			$Salary	= $_POST['Salary'];
 			$Super_ssn	= $_POST['Super_ssn'];
 			$Dno	= $_POST['Dno'];
 
-			$sql = mysqli_query($koneksi, "UPDATE employee SET Fname='$Fname', Minit='$Minit', Lname='$Lname', Bdate='$Bdate', Address='$Address', Sex='$Sex', Salary='$Salary', super_ssn='$super_ssn', Dno='$Dno' WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
-
+			$sql = mysqli_query($koneksi, "UPDATE employee SET Fname='$Fname', Minit='$Minit', Lname='$Lname', Bdate='$Bdate', Address='$Address', Sex='$Sex', Salary='$Salary', Super_ssn='$Super_ssn', Dno='$Dno' WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
+			$sql = mysqli_query($koneksi, "UPDATE employee SET Ssn='$Sssnbaru'WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
 			if($sql){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil1";</script>';
 			}else{
@@ -80,11 +80,18 @@
 					<input type="text" name="Ssn" class="form-control" value="<?php echo $data['Ssn']; ?>" required>
 				</div>
 			</div>
+
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Ssnbaru</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="Ssnbaru" class="form-control" value="<?php echo $data['Ssnbaru']; ?>" required>
+				</div>
+			</div>
 			
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Bdate</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Bdate" class="form-control" value="<?php echo $data['Bdate']; ?>" required>
+					<input type="date" name="Bdate" class="form-control" value="<?php echo $data['Bdate']; ?>" required>
 				</div>
 			</div>
 			
@@ -124,16 +131,16 @@
 			</div>
 
 			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">dno</label>
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Dno</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="dno" class="form-control" value="<?php echo $data['dno']; ?>" required>
+					<input type="text" name="Dno" class="form-control" value="<?php echo $data['Dno']; ?>" required>
 				</div>
 			</div>
 
 			<div class="item form-group">
 				<div class="col-md-6 col-sm-6 offset-md-3">
 					<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-					<a href="index.php?page=tampil_mhs" class="btn btn-warning">Kembali</a>
+					<a href="index.php?page=tampil" class="btn btn-warning">Kembali</a>
 				</div>
 			</div>
 		</form>

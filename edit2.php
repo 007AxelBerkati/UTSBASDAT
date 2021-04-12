@@ -58,12 +58,6 @@
 				</div>
 			</div>
 			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">SSN</label>
-				<div class="col-md-6 col-sm-6">
-					<input type="date" name="Mgr_start_date" class="form-control" value="<?php echo $Mgr_start_date['Mgr_start_date']; ?>" required>
-				</div>
-			</div>
-			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Date Start</label>
 				<div class="col-md-6 col-sm-6">
 					<input type="date" name="Mgr_start_date" class="form-control" value="<?php echo $Mgr_start_date['Mgr_start_date']; ?>" required>
