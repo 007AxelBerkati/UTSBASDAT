@@ -65,25 +65,25 @@
                   <li><a><i class="fa fa-desktop"></i> DEPARTMENT <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?page=tampil2">Tampil Data</a></li>
-                      <li><a href="index.php?page=tampil2">Tambah Data</a></li>
+                      <li><a href="index.php?page=tambah2">Tambah Data</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> DEPT LOCATION <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?page=tampil3">Tampil Data</a></li>
-                      <li><a href="index.php?page=tampil3">Tambah Data</a></li>
+                      <li><a href="index.php?page=tambah3">Tambah Data</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> PROJECT <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?page=tampil4">Tampil Data</a></li>
-                      <li><a href="index.php?page=tampil4">Tambah Data</a></li>
+                      <li><a href="index.php?page=tambah4">Tambah Data</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> WORKS ON <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.php?page=tampil5">Tampil Data</a></li>
-                      <li><a href="index.php?page=tampil5">Tambah Data</a></li>
+                      <li><a href="index.php?page=tambah5">Tambah Data</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> DEPENDENT <span class="fa fa-chevron-down"></span></a>
