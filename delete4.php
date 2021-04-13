@@ -13,7 +13,7 @@ if(isset($_GET['Pnumber'])){
 	//jika query menghasilkan nilai > 0 maka eksekusi script di bawah
 	if(mysqli_num_rows($cek) > 0){
 		//query ke database DELETE untuk menghapus data dengan kondisi id=$id
-		$del = mysqli_query($koneksi, "DELETE * FROM project WHERE Pnumber='$Pnumber'") or die(mysqli_error($koneksi));
+		$del = mysqli_query($koneksi, "DELETE FROM project WHERE Pnumber='$Pnumber'") or die(mysqli_error($koneksi));
 		if($del){
 			echo '<script>alert("Berhasil menghapus data."); document.location="index.php?page=tampil4";</script>';
 		}else{

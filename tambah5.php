@@ -11,7 +11,6 @@
 
 			$cek = mysqli_query($koneksi, "SELECT * FROM works_on WHERE Essn='$Essn' or Pno='$Pno'") or die(mysqli_error($koneksi));
 
-			if(mysqli_num_rows($cek) == 0){
 				$sql = mysqli_query($koneksi, "INSERT INTO works_on (Essn, Pno, Hours) VALUES('$Essn','$Pno','$Hours')") or die(mysqli_error($koneksi));
 
 				if($sql){
@@ -19,9 +18,6 @@
 				}else{
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
-			}else{
-				echo '<div class="alert alert-warning">Gagal, Pno atau Essn sudah terdaftar.</div>';
-			}
 		}
 		?>
 

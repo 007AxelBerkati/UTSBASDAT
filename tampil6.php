@@ -5,7 +5,7 @@ include('config.php');
 
 
 	<div class="container" style="margin-top:20px">
-		<center><font size="6">Data Mahasiswa</font></center>
+		<center><font size="6">Data Dependent</font></center>
 		<hr>
 		<a href="index.php?page=tambah6"><button class="btn btn-dark right">Tambah Data</button></a>
 		<div class="table-responsive">
@@ -40,7 +40,7 @@ include('config.php');
 							<td>'.$data['Bdate'].'</td>
 							<td>'.$data['Relationship'].'</td>
 							<td>
-								<a href="index.php?page=edit_mhs&Essn='.$data['Essn'].'" class="btn btn-secondary btn-sm">Edit</a>
+								<a href="index.php?page=edit6&Essn='.$data['Essn'].'" class="btn btn-secondary btn-sm">Edit</a>
 								<a href="delete6.php?Essn='.$data['Essn'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>

@@ -11,7 +11,6 @@
 
 			$cek = mysqli_query($koneksi, "SELECT * FROM project WHERE Pnumber='$Pnumber'") or die(mysqli_error($koneksi));
 
-			if(mysqli_num_rows($cek) == 0){
 				$sql = mysqli_query($koneksi, "INSERT INTO project(Pname, Pnumber, Plocation, Dnum) VALUES('$Pname', '$Pnumber','$Plocation','$Dnum')") or die(mysqli_error($koneksi));
 
 				if($sql){
@@ -19,9 +18,6 @@
 				}else{
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
-			}else{
-				echo '<div class="alert alert-warning">Gagal, Pnumber sudah terdaftar.</div>';
-			}
 		}
 		?>
 

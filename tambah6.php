@@ -12,7 +12,6 @@
 
 			$cek = mysqli_query($koneksi, "SELECT * FROM dependent WHERE Essn='$Essn' or Dependent_name ='$Dependent_name'") or die(mysqli_error($koneksi));
 
-			if(mysqli_num_rows($cek) == 0){
 				$sql = mysqli_query($koneksi, "INSERT INTO dependent (Nim, Nama_Mhs, Jenis_Kelamin, Program_Studi) VALUES('$Essn','$Dependent_name','$Sex','$Bdate','$Relationship')") or die(mysqli_error($koneksi));
 
 				if($sql){
@@ -20,9 +19,6 @@
 				}else{
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
-			}else{
-				echo '<div class="alert alert-warning">Gagal, Essn atau Dependent_name sudah terdaftar.</div>';
-			}
 		}
 		?>
 
@@ -63,9 +59,11 @@
 				<div class="col-md-6 col-sm-6">
 					<input type="text" name="Relationship" class="form-control" required>
 				</div>
-			<div class="item form-group">
+			</div>
+				<div class="item form-group">
 				<div  class="col-md-6 col-sm-6 offset-md-3">
 					<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
 			</div>
+		
 		</form>
 	</div>
