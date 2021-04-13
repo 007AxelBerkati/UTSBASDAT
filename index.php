@@ -262,6 +262,7 @@
               # code...
           include 'edit6.php';
           break; 
+          #home
         default:
 		          #code...
 		      include 'home.php';
