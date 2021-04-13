@@ -5,7 +5,7 @@ include('config.php');
 
 
 	<div class="container" style="margin-top:20px">
-		<center><font size="6">Data Mahasiswa</font></center>
+		<center><font size="6">Data Works On</font></center>
 		<hr>
 		<a href="index.php?page=tambah5"><button class="btn btn-dark right">Tambah Data</button></a>
 		<div class="table-responsive">

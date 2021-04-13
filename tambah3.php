@@ -7,9 +7,6 @@
 			$Dnumber			= $_POST['Dnumber'];
 			$Dlocation			= $_POST['Dlocation'];
 
-			$cek = mysqli_query($koneksi, "SELECT * FROM dept_location WHERE Dnumber='$Dnumber'") or die(mysqli_error($koneksi));
-
-			if(mysqli_num_rows($cek) == 0){
 				$sql = mysqli_query($koneksi, "INSERT INTO dept_location(Dnumber, Dlocation) VALUES('$Dnumber','$Dlocation')") or die(mysqli_error($koneksi));
 
 				if($sql){
@@ -17,13 +14,10 @@
 				}else{
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
-			}else{
-				echo '<div class="alert alert-warning">Gagal, Dnumber sudah terdaftar.</div>';
 			}
-		}
 		?>
 
-		<form action="index.php?page=tambah_mhs" method="post">
+		<form action="index.php?page=tambah3" method="post">
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Dnumber</label>
 				<div class="col-md-6 col-sm-6 ">
@@ -31,7 +25,7 @@
 				</div>
 			</div>
 			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Mahasiswa</label>
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Dlocation</label>
 				<div class="col-md-6 col-sm-6">
 					<input type="text" name="Dlocation" class="form-control" required>
 				</div>
