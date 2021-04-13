@@ -242,30 +242,28 @@
                 # code...
             include 'edit5.php';
             break; 
+            # Dependent
+        case 'tampil6':
+          # code...
+          include 'tampil6.php';
+          break;
+    
+        case 'tambah6':
+          # code...
+          include 'tambah6.php';
+          break;
+    
+        case 'edit6':
+            # code...
+          include 'edit6.php';
+          break;
+    
+        case 'edit6save':
+              # code...
+          include 'edit6.php';
+          break; 
         default:
 		          #code...
-
-
-              # Dependent
-          case 'tampil6':
-            # code...
-            include 'tampil6.php';
-            break;
-
-          case 'tambah6':
-            # code...
-            include 'tambah6.php';
-            break;
-
-          case 'edit6':
-              # code...
-            include 'edit6.php';
-            break;
-
-          case 'edit6save':
-                # code...
-            include 'edit6.php';
-            break; 
 		      include 'home.php';
 		      break;
         }
