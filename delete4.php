@@ -15,15 +15,15 @@ if(isset($_GET['Pnumber'])){
 		//query ke database DELETE untuk menghapus data dengan kondisi id=$id
 		$del = mysqli_query($koneksi, "DELETE * FROM project WHERE Pnumber='$Pnumber'") or die(mysqli_error($koneksi));
 		if($del){
-			echo '<script>alert("Berhasil menghapus data."); document.location="index.php?page=tampil_mhs";</script>';
+			echo '<script>alert("Berhasil menghapus data."); document.location="index.php?page=tampil4";</script>';
 		}else{
-			echo '<script>alert("Gagal menghapus data."); document.location="index.php?page=tampil_mhs";</script>';
+			echo '<script>alert("Gagal menghapus data."); document.location="index.php?page=tampil4";</script>';
 		}
 	}else{
-		echo '<script>alert("ID tidak ditemukan di database."); document.location="index.php?page=tampil_mhs";</script>';
+		echo '<script>alert("ID tidak ditemukan di database."); document.location="index.php?page=tampil4";</script>';
 	}
 }else{
-	echo '<script>alert("ID tidak ditemukan di database."); document.location="index.php?page=tampil_mhs";</script>';
+	echo '<script>alert("ID tidak ditemukan di database."); document.location="index.php?page=tampil4";</script>';
 }
 
 ?>
