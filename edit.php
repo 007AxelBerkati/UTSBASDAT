@@ -43,7 +43,7 @@
 			$Dno	= $_POST['Dno'];
 
 			$sql = mysqli_query($koneksi, "UPDATE employee SET Fname='$Fname', Minit='$Minit', Lname='$Lname', Bdate='$Bdate', Address='$Address', Sex='$Sex', Salary='$Salary', Super_ssn='$Super_ssn', Dno='$Dno' WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
-			$sql = mysqli_query($koneksi, "UPDATE employee SET Ssn='$Sssnbaru'WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
+			$sql = mysqli_query($koneksi, "UPDATE employee SET Ssn='$Ssnbaru'WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
 			if($sql){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil1";</script>';
 			}else{

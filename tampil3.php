@@ -35,7 +35,7 @@ include('config.php');
 							<td>'.$data['Dlocation'].'</td>
 							<td>
 								<a href="index.php?page=edit3&Dnumber='.$data['Dnumber'].'" class="btn btn-secondary btn-sm">Edit</a>
-								<a href="delete3.php?Dlocation='.$data['Dlocation'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+								<a href="delete3.php?DNumber='.$data['Dnumber'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>
 						';

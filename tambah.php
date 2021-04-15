@@ -14,7 +14,7 @@
 			$Super_ssn		= $_POST['Super_ssn'];
 			$Dno			= $_POST['Dno'];
 
-				$sql = mysqli_query($koneksi, "INSERT INTO employee(Fname, Minit, Lname, Ssn, Bdate, Address, Sex, Salary, Super_ssn, Dno) VALUES('$Fname', '$Minit', '$Lname', '$Ssn','$Bdate', '$Sex', '$Salary', '$Super_ssn','$Dno')") or die(mysqli_error($koneksi));
+				$sql = mysqli_query($koneksi, "INSERT INTO employee(Fname, Minit, Lname, Ssn, Bdate, Address, Sex, Salary, Super_ssn, Dno) VALUES('$Fname', '$Minit', '$Lname', '$Ssn','$Bdate','$Address', '$Sex', '$Salary', '$Super_ssn','$Dno')") or die(mysqli_error($koneksi));
 
 				if($sql){
 					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil1";</script>';

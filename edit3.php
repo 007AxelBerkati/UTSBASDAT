@@ -30,11 +30,11 @@
 		<?php
 		//jika tombol simpan di tekan/klik
 		if(isset($_POST['submit'])){
-			$Dnumber	= $_POST['Dnumberbaru'];
+			$Dnumberbaru	= $_POST['Dnumberbaru'];
 			$Dnumber	= $_POST['Dnumber'];
 			$Dlocation	= $_POST['Dlocation'];
 
-			$sql = mysqli_query($koneksi, "UPDATE dept_location SET  Dnumber='$Dnumberbaru', Dlocation='$Dlocation' WHERE Dnumber='$Dnumber'") or die(mysqli_error($koneksi));
+			$sql = mysqli_query($koneksi, "UPDATE dept_location SET  Dnumber='$Dnumberbaru' WHERE Dnumber='$Dnumber'") or die(mysqli_error($koneksi));
 			if($sql){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil3";</script>';
 			}else{
@@ -43,7 +43,7 @@
 		}
 		?>
 
-		<form action="index.php?page=edit3&Dnumber=<?php echo $Nim; ?>" method="post">
+		<form action="index.php?page=edit3&Dnumber=<?php echo $Dnumber; ?>" method="post">
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Dnumber</label>
 				<div class="col-md-6 col-sm-6">
