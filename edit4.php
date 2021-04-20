@@ -32,12 +32,13 @@
 		if(isset($_POST['submit'])){
 			$Pname			  = $_POST['Pname'];
 			$Pnumber	= $_POST['Pnumber'];
+			$Pnumberbaru	= $_POST['Pnumberbaru'];
 			$Plocation	= $_POST['Plocation'];
 			$Dnum	= $_POST['Dnum'];
 
-			$sql = mysqli_query($koneksi, "UPDATE mahasiswa SET Pname='$Pname', Pnumber='$Pnumber', Plocation='$Plocation', Dnum='$Dnum' WHERE Pnumber='$Pnumber'") or die(mysqli_error($koneksi));
-
-			if($sql){
+			$sql = mysqli_query($koneksi, "UPDATE project SET Pname='$Pname', Plocation='$Plocation', Dnum='$Dnum' WHERE Pnumber='$Pnumber'") or die(mysqli_error($koneksi));
+			$sql1 = mysqli_query($koneksi, "UPDATE project SET Pnumber='$Pnumberbaru' WHERE Pnumber='$Pnumber'") or die(mysqli_error($koneksi));
+			if($sql && $sql1){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil4";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
@@ -47,27 +48,33 @@
 
 		<form action="index.php?page=edit4&Pnumber=<?php echo $Pnumber; ?>" method="post">
 			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Pname</label>
-				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Pname" class="form-control" value="<?php echo $data['Pname']; ?>" required>
-				</div>
-			</div>
-			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Pnumber</label>
 				<div class="col-md-6 col-sm-6">
 					<input type="text" name="Pnumber" class="form-control" size="4" value="<?php echo $data['Pnumber']; ?>" readonly required>
 				</div>
 			</div>
 			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Plocation/label>
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Pnumberbaru</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Plocation" class="form-control" size="4" value="<?php echo $data['Plocation']; ?>" readonly required>
+					<input type="text" name="Pnumberbaru" class="form-control" value="<?php echo $data['Pnumberbaru']; ?>" required>
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Pname</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="Pname" class="form-control" value="<?php echo $data['Pname']; ?>" required>
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Plocation</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="Plocation" class="form-control" value="<?php echo $data['Plocation']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Dnum</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Dnum" class="form-control" size="4" value="<?php echo $data['Dnum']; ?>" readonly required>
+					<input type="text" name="Dnum" class="form-control" value="<?php echo $data['Dnum']; ?>" required>
 				</div>
 			</div>
 			

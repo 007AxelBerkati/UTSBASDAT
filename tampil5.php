@@ -16,6 +16,7 @@ include('config.php');
 					<th>Essn</th>
 					<th>Pno</th>
 					<th>Hours</th>
+					<th>aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,7 +38,7 @@ include('config.php');
 							<td>'.$data['Hours'].'</td>
 							<td>
 								<a href="index.php?page=edit5&Essn='.$data['Essn'].'" class="btn btn-secondary btn-sm">Edit</a>
-								<a href="delete.php?Essn='.$data['Essn'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+								<a href="delete5.php?Essn='.$data['Essn'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>
 						';

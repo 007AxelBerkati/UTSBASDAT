@@ -32,11 +32,13 @@
 		if(isset($_POST['submit'])){
 			$Essn	= $_POST['Essn'];
 			$Pno	= $_POST['Pno'];
+			$Pnobaru= $_POST['Pnobaru'];
 			$Hours	= $_POST['Hours'];
 
-			$sql = mysqli_query($koneksi, "UPDATE works_on SET Essn='$Essn', Pno='$Pno', Hours='$Hours' WHERE Essn='$Essn'") or die(mysqli_error($koneksi));
+			$sql = mysqli_query($koneksi, "UPDATE works_on SET Essn='$Essn', Pno='$Pnobaru', Hours='$Hours' WHERE Essn='$Essn' AND Pno='$Pno'") or die(mysqli_error($koneksi));
+			$sql1 = mysqli_query($koneksi, "UPDATE works_on SET Pno='$Pnobaru' WHERE Pno='$Pno'") or die(mysqli_error($koneksi));
 
-			if($sql){
+			if($sql && $sql1){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil5";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
@@ -55,6 +57,12 @@
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Pno</label>
 				<div class="col-md-6 col-sm-6">
 					<input type="text" name="Pno" class="form-control" value="<?php echo $data['Pno']; ?>" required>
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">pnobaru</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="pnobaru" class="form-control" value="<?php echo $data['pnobaru']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">

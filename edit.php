@@ -43,8 +43,8 @@
 			$Dno	= $_POST['Dno'];
 
 			$sql = mysqli_query($koneksi, "UPDATE employee SET Fname='$Fname', Minit='$Minit', Lname='$Lname', Bdate='$Bdate', Address='$Address', Sex='$Sex', Salary='$Salary', Super_ssn='$Super_ssn', Dno='$Dno' WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
-			$sql = mysqli_query($koneksi, "UPDATE employee SET Ssn='$Ssnbaru'WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
-			if($sql){
+			$sql1 = mysqli_query($koneksi, "UPDATE employee SET Ssn='$Ssnbaru' WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
+			if($sql && $sql1){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil1";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
@@ -52,7 +52,7 @@
 		}
 		?>
 
-		<form action="index.php?page=edit&Ssn=<?php echo $Ssn; ?>" method="post">
+		<form action="index.php?page=edit1&Ssn=<?php echo $Ssn; ?>" method="post">
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Fname</label>
 				<div class="col-md-6 col-sm-6">
@@ -140,7 +140,7 @@
 			<div class="item form-group">
 				<div class="col-md-6 col-sm-6 offset-md-3">
 					<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-					<a href="index.php?page=tampil" class="btn btn-warning">Kembali</a>
+					<a href="index.php?page=tampil1" class="btn btn-warning">Kembali</a>
 				</div>
 			</div>
 		</form>

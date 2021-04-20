@@ -8,12 +8,12 @@
 
 		<?php
 		//jika sudah mendapatkan parameter GET id dari URL
-		if(isset($_GET['Essn'])){
+		if(isset($_GET['Dependent_name'])){
 			//membuat variabel $id untuk menyimpan id dari GET id di URL
-			$Essn = $_GET['Essn'];
+			$Dependent_name = $_GET['Dependent_name'];
 
 			//query ke database SELECT tabel mahasiswa berdasarkan id = $id
-			$select = mysqli_query($koneksi, "SELECT * FROM dependent WHERE Essn='$Essn'") or die(mysqli_error($koneksi));
+			$select = mysqli_query($koneksi, "SELECT * FROM dependent WHERE Dependent_name='$Dependent_name'") or die(mysqli_error($koneksi));
 
 			//jika hasil query = 0 maka muncul pesan error
 			if(mysqli_num_rows($select) == 0){
@@ -31,15 +31,16 @@
 		//jika tombol simpan di tekan/klik
 		if(isset($_POST['submit'])){
 			$Essn		= $_POST['Essn'];
-			$dependent_name	= $_POST['dependent_name'];
+			$Dependent_name	= $_POST['Dependent_name'];
+			$Dependent_namebaru	= $_POST['Dependent_namebaru'];
 			$Sex	= $_POST['Sex'];
 			$Bdate	= $_POST['Bdate'];
 			$Relationship	= $_POST['Relationship'];
 
 
-			$sql = mysqli_query($koneksi, "UPDATE mahasiswa SET Essn='$Essn', dependent_name='$dependent_name', sex='$sex', Bdate='$Bdate', Relationship='$Relationship' WHERE Essn='$Essn'") or die(mysqli_error($koneksi));
-
-			if($sql){
+			$sql = mysqli_query($koneksi, "UPDATE dependent SET Essn='$Essn', Sex='$Sex', Bdate='$Bdate', Relationship='$Relationship' WHERE Dependent_name='$Dependent_name'") or die(mysqli_error($koneksi));
+			$sql1 = mysqli_query($koneksi, "UPDATE dependent SET Dependent_name='$Dependent_namebaru' WHERE Dependent_name='$Dependent_name'") or die(mysqli_error($koneksi));
+			if($sql && $sql1){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil6";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
@@ -47,17 +48,23 @@
 		}
 		?>
 
-		<form action="index.php?page=edit6&Essn=<?php echo $Essn; ?>" method="post">
+		<form action="index.php?page=edit6&Dependent_name=<?php echo $Dependent_name; ?>" method="post">
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Essn</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Essn" class="form-control" size="4" value="<?php echo $data['Essn']; ?>" readonly required>
+					<input type="text" name="Essn" class="form-control" size="4" value="<?php echo $data['Essn']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Dependent_name</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="dependent_name" class="form-control" value="<?php echo $data['dependent_name']; ?>" required>
+					<input type="text" name="Dependent_name" class="form-control" value="<?php echo $data['Dependent_name']; ?>" readonly required>
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Dependent_name baru</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="Dependent_namebaru" class="form-control" value="<?php echo $data['Dependent_namebaru']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
@@ -76,13 +83,13 @@
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Bdate</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Bdate" class="form-control" size="4" value="<?php echo $data['Bdate']; ?>" readonly required>
+					<input type="date" name="Bdate" class="form-control" value="<?php echo $data['Bdate']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Relationship</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Relationship" class="form-control" size="4" value="<?php echo $data['Relationship']; ?>" readonly required>
+					<input type="text" name="Relationship" class="form-control" value="<?php echo $data['Relationship']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">

@@ -10,9 +10,9 @@
 			$Bdate		= $_POST['Bdate'];
 			$Relationship		= $_POST['Relationship'];
 
-			$cek = mysqli_query($koneksi, "SELECT * FROM dependent WHERE Essn='$Essn' or Dependent_name ='$Dependent_name'") or die(mysqli_error($koneksi));
+			$cek = mysqli_query($koneksi, "SELECT * FROM dependent WHERE Dependent_name ='$Dependent_name'") or die(mysqli_error($koneksi));
 
-				$sql = mysqli_query($koneksi, "INSERT INTO dependent (Nim, Nama_Mhs, Jenis_Kelamin, Program_Studi) VALUES('$Essn','$Dependent_name','$Sex','$Bdate','$Relationship')") or die(mysqli_error($koneksi));
+				$sql = mysqli_query($koneksi, "INSERT INTO dependent (Essn, Dependent_name, Sex, Bdate, Relationship) VALUES('$Essn','$Dependent_name','$Sex','$Bdate','$Relationship')") or die(mysqli_error($koneksi));
 
 				if($sql){
 					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil6";</script>';
@@ -40,18 +40,18 @@
 				<div class="col-md-6 col-sm-6 ">
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-							<input type="radio" class="join-btn" name="Jenis_Kelamin" value="M" required>Laki-Laki
+							<input type="radio" class="join-btn" name="Sex" value="M" required>Laki-Laki
 						</label>
 						<label class="btn btn-primary " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-							<input type="radio" class="join-btn" name="Jenis_Kelamin" value="F" required>Perempuan
+							<input type="radio" class="join-btn" name="Sex" value="F" required>Perempuan
 						</label>
 					</div>
 				</div>
 			</div>
 			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Bdate</label>
-				<div class="col-md-6 col-sm-6 ">
-					<input type="text" name="Bdate" class="form-control" size="4" required>
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Birth date</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="date" name="Bdate" class="form-control" required>
 				</div>
 			</div>
 			<div class="item form-group">

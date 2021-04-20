@@ -9,7 +9,7 @@
 			$Hours			= $_POST['Hours'];
 			
 
-			$cek = mysqli_query($koneksi, "SELECT * FROM works_on WHERE Essn='$Essn' or Pno='$Pno'") or die(mysqli_error($koneksi));
+			$cek = mysqli_query($koneksi, "SELECT * FROM works_on WHERE Essn='$Essn'") or die(mysqli_error($koneksi));
 
 				$sql = mysqli_query($koneksi, "INSERT INTO works_on (Essn, Pno, Hours) VALUES('$Essn','$Pno','$Hours')") or die(mysqli_error($koneksi));
 

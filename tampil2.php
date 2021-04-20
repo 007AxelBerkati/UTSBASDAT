@@ -17,6 +17,7 @@ include('config.php');
 					<th>Dnumber</th>
 					<th>Mgr_ssn</th>
 					<th>Mgr_start_date</th>
+					<th>aksi</th>
 				</tr>
 			</thead>
 			<tbody>

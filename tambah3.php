@@ -6,9 +6,8 @@
 		if(isset($_POST['submit'])){
 			$Dnumber			= $_POST['Dnumber'];
 			$Dlocation			= $_POST['Dlocation'];
-
+				
 				$sql = mysqli_query($koneksi, "INSERT INTO dept_location(Dnumber, Dlocation) VALUES('$Dnumber','$Dlocation')") or die(mysqli_error($koneksi));
-
 				if($sql){
 					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil3";</script>';
 				}else{

@@ -18,6 +18,7 @@ include('config.php');
 					<th>Sex</th>
 					<th>Bdate</th>
 					<th>Relationship</th>
+					<th>aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,8 +41,8 @@ include('config.php');
 							<td>'.$data['Bdate'].'</td>
 							<td>'.$data['Relationship'].'</td>
 							<td>
-								<a href="index.php?page=edit6&Essn='.$data['Essn'].'" class="btn btn-secondary btn-sm">Edit</a>
-								<a href="delete6.php?Essn='.$data['Essn'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+								<a href="index.php?page=edit6&Dependent_name='.$data['Dependent_name'].'" class="btn btn-secondary btn-sm">Edit</a>
+								<a href="delete6.php?Dependent_name='.$data['Dependent_name'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>
 						';

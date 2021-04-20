@@ -3,17 +3,17 @@
 include('config.php');
 
 //jika benar mendapatkan GET id dari URL
-if(isset($_GET['Essn'])){
+if(isset($_GET['Dependent_name'])){
 	//membuat variabel $id yang menyimpan nilai dari $_GET['id']
-	$Essn = $_GET['Essn'];
+	$Dependent_name = $_GET['Dependent_name'];
 
 	//melakukan query ke database, dengan cara SELECT data yang memiliki id yang sama dengan variabel $id
-	$cek = mysqli_query($koneksi, "SELECT * FROM dependent WHERE Essn='$Essn'") or die(mysqli_error($koneksi));
+	$cek = mysqli_query($koneksi, "SELECT * FROM dependent WHERE Dependent_name='$Dependent_name'") or die(mysqli_error($koneksi));
 
 	//jika query menghasilkan nilai > 0 maka eksekusi script di bawah
 	if(mysqli_num_rows($cek) > 0){
 		//query ke database DELETE untuk menghapus data dengan kondisi id=$id
-		$del = mysqli_query($koneksi, "DELETE FROM dependent WHERE Essn='$Essn'") or die(mysqli_error($koneksi));
+		$del = mysqli_query($koneksi, "DELETE FROM dependent WHERE Dependent_name='$Dependent_name'") or die(mysqli_error($koneksi));
 		if($del){
 			echo '<script>alert("Berhasil menghapus data."); document.location="index.php?page=tampil6";</script>';
 		}else{

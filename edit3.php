@@ -33,8 +33,10 @@
 			$Dnumberbaru	= $_POST['Dnumberbaru'];
 			$Dnumber	= $_POST['Dnumber'];
 			$Dlocation	= $_POST['Dlocation'];
+			$Dlocationbaru	= $_POST['Dlocationbaru'];
 
-			$sql = mysqli_query($koneksi, "UPDATE dept_location SET  Dnumber='$Dnumberbaru' WHERE Dnumber='$Dnumber'") or die(mysqli_error($koneksi));
+			$sql = mysqli_query($koneksi, "UPDATE dept_location SET  Dnumber='$Dnumberbaru' , Dlocation='$Dlocationbaru' WHERE Dlocation='$Dlocation'") or die(mysqli_error($koneksi));
+			
 			if($sql){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil3";</script>';
 			}else{
@@ -43,7 +45,7 @@
 		}
 		?>
 
-		<form action="index.php?page=edit3&Dnumber=<?php echo $Dnumber; ?>" method="post">
+		<form action="index.php?page=edit3&Dlocation=<?php echo $Dlocation; ?>" method="post">
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Dnumber</label>
 				<div class="col-md-6 col-sm-6">
@@ -61,7 +63,13 @@
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Dlocation</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Dlocation" class="form-control" value="<?php echo $data['Dlocation']; ?>" required>
+					<input type="text" name="Dlocation" class="form-control" value="<?php echo $data['Dlocation']; ?>" readonly required>
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Dlocationbaru</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="Dlocationbaru" class="form-control" value="<?php echo $data['Dlocationbaru']; ?>" required>
 				</div>
 			</div>
 

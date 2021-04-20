@@ -17,6 +17,7 @@ include('config.php');
 					<th>Pnumber</th>
 					<th>Plocation</th>
 					<th>Dnum</th>
+					<th>aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,7 +40,7 @@ include('config.php');
 							<td>'.$data['Dnum'].'</td>
 							<td>
 								<a href="index.php?page=edit4&Pnumber='.$data['Pnumber'].'" class="btn btn-secondary btn-sm">Edit</a>
-								<a href="delete.php?Pnumber='.$data['Pnumber'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+								<a href="delete4.php?Pnumber='.$data['Pnumber'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>
 						';

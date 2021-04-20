@@ -31,17 +31,22 @@
 		//jika tombol simpan di tekan/klik
 		if(isset($_POST['submit'])){
 			$Dname	    = $_POST['Dname'];
+			$Dnumber	    = $_POST['Dnumber'];
+			$Dnumberbaru	    = $_POST['Dnumberbaru'];
 			$Mgr_ssn	= $_POST['Mgr_ssn'];
 			$Mgr_start_date	= $_POST['Mgr_start_date'];
 			
+			
 			$sql = mysqli_query($koneksi, "UPDATE department SET Dname='$Dname', Mgr_ssn='$Mgr_ssn', Mgr_start_date='$Mgr_start_date' WHERE Dnumber='$Dnumber'") or die(mysqli_error($koneksi));
 
-			if($sql){
+			$sql1 = mysqli_query($koneksi, "UPDATE department SET Dnumber='$Dnumberbaru' WHERE Dnumber='$Dnumber'") or die(mysqli_error($koneksi));
+			if($sql && $sql1){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil2";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
 			}
 		}
+		
 		?>
 
 		<form action="index.php?page=edit2&Dnumber=<?php echo $Dnumber; ?>" method="post">
@@ -52,21 +57,27 @@
 				</div>
 			</div>
 			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Dnumberbaru</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="Dnumberbaru" class="form-control" value="<?php echo $data['Dnumberbaru']; ?>" required>
+				</div>
+			</div>
+			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Department</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Dname" class="form-control" value="<?php echo $Dname['Dname']; ?>" required>
+					<input type="text" name="Dname" class="form-control" value="<?php echo $data['Dname']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Mgr Ssn</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Mgr_ssn" class="form-control" value="<?php echo $Mgr_ssn['Mgr_ssn']; ?>" required>
+					<input type="text" name="Mgr_ssn" class="form-control" value="<?php echo $data['Mgr_ssn']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Date Start</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="date" name="Mgr_start_date" class="form-control" value="<?php echo $Mgr_start_date['Mgr_start_date']; ?>" required>
+					<input type="date" name="Mgr_start_date" class="form-control" value="<?php echo $data['Mgr_start_date']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
