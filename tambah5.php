@@ -31,7 +31,7 @@
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Pno</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Nama_Mhs" class="form-control" required>
+					<input type="text" name="Pno" class="form-control" required>
 				</div>
 			</div>
 			<div class="item form-group">

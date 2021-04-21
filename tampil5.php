@@ -38,7 +38,11 @@ include('config.php');
 							<td>'.$data['Hours'].'</td>
 							<td>
 								<a href="index.php?page=edit5&Essn='.$data['Essn'].'" class="btn btn-secondary btn-sm">Edit</a>
-								<a href="delete5.php?Essn='.$data['Essn'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+								<form action="delete5.php" method="get">
+								<input type="hidden" name="essn" value="'.$data['Essn'].'">
+								<input type="hidden" name="pno" value="'.$data['Pno'].'">
+								<button type="submit" name="submit">submit</button>
+								</form>
 							</td>
 						</tr>
 						';
