@@ -41,7 +41,7 @@ include('config.php');
 								<form action="delete5.php" method="get">
 								<input type="hidden" name="essn" value="'.$data['Essn'].'">
 								<input type="hidden" name="pno" value="'.$data['Pno'].'">
-								<button type="submit" name="submit">Delete</button>
+								<button type="submit" name="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</button>
 								</form>
 							</td>
 						</tr>
