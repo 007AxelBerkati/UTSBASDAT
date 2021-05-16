@@ -22,7 +22,7 @@ include('config.php');
 			</thead>
 			<tbody>
 				<?php
-				//query ke database SELECT tabel mahasiswa urut berdasarkan id yang paling besar
+			
 				$sql = mysqli_query($koneksi, "SELECT * FROM department ORDER BY Dnumber ASC") or die(mysqli_error($koneksi));
 				//jika query diatas menghasilkan nilai > 0 maka menjalankan script di bawah if...
 				if(mysqli_num_rows($sql) > 0){
