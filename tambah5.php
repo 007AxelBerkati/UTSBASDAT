@@ -8,16 +8,19 @@
 			$Pno			= $_POST['Pno'];
 			$Hours			= $_POST['Hours'];
 			
-
-			$cek = mysqli_query($koneksi, "SELECT * FROM works_on WHERE Essn='$Essn'") or die(mysqli_error($koneksi));
-
 				$sql = mysqli_query($koneksi, "INSERT INTO works_on (Essn, Pno, Hours) VALUES('$Essn','$Pno','$Hours')") or die(mysqli_error($koneksi));
-
+				$cek_hours = mysqli_query($koneksi, "SELECT * FROM temp where essn='$Essn'");
 				if($sql){
+				if(mysqli_num_rows($cek_hours) > 0){
+				while($data = mysqli_fetch_assoc($cek_hours)){
+					echo '<script>alert("essn dari '.$data['essn'].' Melebihi 40 jam dalam seminggu"); document.location="index.php?page=tampil5";</script>';
+					echo '<script>alert("Berhasil menambahkan data.");';
+				}
 					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil5";</script>';
 				}else{
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
+			}
 		}
 		?>
 
