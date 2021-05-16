@@ -235,6 +235,10 @@
               # code...
           include 'edit6.php';
           break; 
+
+        case 'tampil7':
+          include 'tampil7.php';
+          break;
           #home
         default:
 		          #code...

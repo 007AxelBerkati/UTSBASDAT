@@ -17,17 +17,19 @@
 					echo '<script>alert("essn dari '.$data['essn'].' Melebihi 40 jam dalam seminggu"); document.location="index.php?page=tampil7";</script>';
 					echo '<script>alert("Berhasil menambahkan data.");';
 				}
+				}
 				if(mysqli_num_rows($cek_hours1) > 0){
 				while($data = mysqli_fetch_assoc($cek_hours1)){
 					echo '<script>alert("essn dari '.$data['essn'].' Kurang 30 jam dalam seminggu"); document.location="index.php?page=tampil7";</script>';
 					echo '<script>alert("Berhasil menambahkan data.");';
 				}
+			}
 					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil5";</script>';
 				}else{
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
 			}
-		}
+		
 		?>
 
 		<form action="index.php?page=tambah5" method="post">
