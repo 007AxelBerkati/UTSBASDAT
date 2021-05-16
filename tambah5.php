@@ -9,11 +9,17 @@
 			$Hours			= $_POST['Hours'];
 			
 				$sql = mysqli_query($koneksi, "INSERT INTO works_on (Essn, Pno, Hours) VALUES('$Essn','$Pno','$Hours')") or die(mysqli_error($koneksi));
-				$cek_hours = mysqli_query($koneksi, "SELECT * FROM temp where essn='$Essn'");
+				$cek_hours = mysqli_query($koneksi, "SELECT * FROM temp where essn='$Essn' and hours > 40");
+				$cek_hours1 = mysqli_query($koneksi, "SELECT * FROM temp where essn='$Essn' and hours < 30");
 				if($sql){
 				if(mysqli_num_rows($cek_hours) > 0){
 				while($data = mysqli_fetch_assoc($cek_hours)){
-					echo '<script>alert("essn dari '.$data['essn'].' Melebihi 40 jam dalam seminggu"); document.location="index.php?page=tampil5";</script>';
+					echo '<script>alert("essn dari '.$data['essn'].' Melebihi 40 jam dalam seminggu"); document.location="index.php?page=tampil7";</script>';
+					echo '<script>alert("Berhasil menambahkan data.");';
+				}
+				if(mysqli_num_rows($cek_hours1) > 0){
+				while($data = mysqli_fetch_assoc($cek_hours1)){
+					echo '<script>alert("essn dari '.$data['essn'].' Kurang 30 jam dalam seminggu"); document.location="index.php?page=tampil7";</script>';
 					echo '<script>alert("Berhasil menambahkan data.");';
 				}
 					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil5";</script>';

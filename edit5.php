@@ -32,13 +32,12 @@
 		if(isset($_POST['submit'])){
 			$Essn	= $_POST['Essn'];
 			$Pno	= $_POST['Pno'];
-			$Pnobaru= $_POST['Pnobaru'];
+			$Pnobaru= $_POST['Pno_baru'];
 			$Hours	= $_POST['Hours'];
+			$Hoursbaru	= $_POST['Hours_baru'];
 
-			$sql = mysqli_query($koneksi, "UPDATE works_on SET Essn='$Essn', Pno='$Pnobaru', Hours='$Hours' WHERE Essn='$Essn' AND Pno='$Pno'") or die(mysqli_error($koneksi));
-			$sql1 = mysqli_query($koneksi, "UPDATE works_on SET Pno='$Pnobaru' WHERE Pno='$Pno'") or die(mysqli_error($koneksi));
-
-			if($sql && $sql1){
+			$sql = mysqli_query($koneksi, "UPDATE works_on SET Pno=$Pnobaru, Hours='$Hoursbaru' WHERE Essn=$Essn AND Pno=$Pno") or die(mysqli_error($koneksi));
+			if($sql){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil5";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
@@ -62,16 +61,21 @@
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">pnobaru</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="pnobaru" class="form-control" value="<?php echo $data['pnobaru']; ?>" required>
+					<input type="text" name="Pno_baru" class="form-control" value="<?php echo $data['pno']; ?>" required>
 				</div>
 			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Hours</label>
 				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Hours" class="form-control" value="<?php echo $data['Hours']; ?>" required>
+					<input type="text" name="Hours" class="form-control" value="<?php echo $data['Hours']; ?>" readonly required>
 				</div>
 			</div>
-			
+			<div class="item form-group">
+				<label class="col-form-label col-md-3 col-sm-3 label-align">Hoursbaru</label>
+				<div class="col-md-6 col-sm-6">
+					<input type="text" name="Hours_baru" class="form-control" value="<?php echo $data['Hours']; ?>" required>
+				</div>
+			</div>
 			<div class="item form-group">
 				<div class="col-md-6 col-sm-6 offset-md-3">
 					<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
