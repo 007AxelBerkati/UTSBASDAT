@@ -14,11 +14,11 @@
 			$Super_ssn		= $_POST['Super_ssn'];
 			$Dno			= $_POST['Dno'];
 
-			$cek = mysqli_query($koneksi, "SELECT * FROM Ssn WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
+			$cek = mysqli_query($koneksi, "SELECT * FROM employee WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
 			if(mysqli_num_rows($cek) == 0){
 			$sql = mysqli_query($koneksi, "INSERT INTO employee(Fname, Minit, Lname, Ssn, Bdate, Address, Sex, Salary, Super_ssn, Dno) VALUES('$Fname', '$Minit', '$Lname', '$Ssn', '$Bdate', '$Address', '$Sex', '$Salary', '$Super_ssn', '$Dno')") or die(mysqli_error($koneksi));
 			if($sql){
-				echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil3";</script>';
+				echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil1";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 			}
