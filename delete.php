@@ -6,10 +6,8 @@ include('config.php');
 if(isset($_GET['Ssn'])){
 	//membuat variabel $id yang menyimpan nilai dari $_GET['id']
 	$Ssn = $_GET['Ssn'];
-
 	//melakukan query ke database, dengan cara SELECT data yang memiliki id yang sama dengan variabel $id
 	$cek = mysqli_query($koneksi, "SELECT * FROM employee WHERE Ssn='$Ssn'") or die(mysqli_error($koneksi));
-
 	//jika query menghasilkan nilai > 0 maka eksekusi script di bawah
 	if(mysqli_num_rows($cek) > 0){
 		//query ke database DELETE untuk menghapus data dengan kondisi id=$id

@@ -5,7 +5,7 @@ include('config.php');
 
 
 	<div class="container" style="margin-top:20px">
-		<center><font size="6">Data Employee</font></center>
+		<center><font size="6">Kelola Employee</font></center>
 		<hr>
 		<a href="index.php?page=tambah1"><button class="btn btn-dark right">Tambah Data</button></a>
 		<div class="table-responsive">
